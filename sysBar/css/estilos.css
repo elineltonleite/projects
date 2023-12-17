@@ -1,0 +1,42 @@
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+	font-family:arial;
+}
+body,html{
+	background:#eee;
+	height:100%;
+	display:grid;
+	grid-template-columns: 2fr 3fr;
+}
+nav{
+	color:white;
+	/*background:#10A7E3;*/
+	/*background:#1064E3;*/
+	background:#0B9965;
+	color:white;
+	height:100%;
+	padding:20px;
+	width:100%;
+}
+nav ul li{
+	list-style:none;
+	margin:10px 0;
+}
+nav a{
+	text-decoration:none;
+	color:white;
+}
+main{
+	padding:10px;
+	/*background:blue;*/
+	
+}
+.divComandas{
+	background:white;
+	width:800px;
+	height:98%;
+	padding:20px;
+}
+
