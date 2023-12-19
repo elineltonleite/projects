@@ -39,4 +39,32 @@ main{
 	height:98%;
 	padding:20px;
 }
-
+#formCadProd{
+	font-size:12px;
+}
+#formCadProd div{
+	display:inline-block;
+}
+#divPreco{
+	width:80px;
+}
+#divDescricao{
+	width:320px;
+}
+#formCadProd input[type=text]{
+	width:100%;
+	border: 2px solid #cecece;
+	border-radius: 5px;
+	padding:4px;
+}
+#formCadProd button{
+	padding:4px 10px;
+	border:2px solid  #cecece;
+	border-radius: 5px;
+}
+#formCadProd button:hover{
+	cursor:pointer;
+	background:#0B9965;
+	border:2px solid  #0B9965;
+	color:white;
+}
