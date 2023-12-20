@@ -12,10 +12,15 @@ class ControllerProdutos{
 		include_once'./app/views/formCadProduto.php';
 	}
 	
-	public function listaProdutosCadastrados(){
-		
+	public function produtosCadastrados(){
+			$produto = new Produto();
+			$produto->listarProdutosCadastrados();
 	}
-	public function teste(){echo'ok';}
+	public function cadastrarProduto($desc, $preco){
+			$produto = new Produto();
+			$produto->cadastrar($desc, $preco);
+		
+		}
 	
 }
 
@@ -23,16 +28,26 @@ class ControllerProdutos{
 
 
 $p = New ControllerProdutos();
-//$p->menuProdutos();
 
-$p->formCadastrarProduto();
-$p->listaProdutosCadastrados();
 
+
+$metodosPemitidos = [
+		'cadastrarProduto'
+];
 
 // chama o methodo dinamicamente
-
 if(isset($_REQUEST['m'])){
 	$m = $_REQUEST['m'];
-	$p->$m();
+	if(in_array($m,$metodosPemitidos)){
+		if($m == 'cadastrarProduto'){
+			$p->$m($_REQUEST['txtDescricao'], $_REQUEST['txtPreco']);
+		}else{
+			$p->$m();
+		}
+		
+	}
 }
 
+
+$p->formCadastrarProduto();
+$p->produtosCadastrados();

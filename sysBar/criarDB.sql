@@ -12,12 +12,12 @@ CREATE TABLE `comandas`(
     
 );
 
-CREATE TABLE `produtos`(
-	`id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `descricao` VARCHAR(255) NOT NULL,
-	`preço_venda` NUMERIC
-);
 
+CREATE TABLE `produtos`(
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `descricao` VARCHAR(255),
+    `preco_venda` DECIMAL(10,2)
+);
 
 
 /*

@@ -12,8 +12,8 @@
 	</header>
 	
 	<ul>
-		<li><a href="?link=app/controllers/ControllerComandas">Comandas</a></li>
-		<li><a href="?link=app/controllers/ControllerProdutos">Produtos</a></li>
+		<li><a href="?link=app/controllers/ControllerComandas"><img src="./imgs/bloco-de-anotacoes.png" width="45px"></a></li>
+		<li><a href="?link=app/controllers/ControllerProdutos"><img src="./imgs/produtos.png" width="45px"></a></li>
 	</ul>
 </nav>
 <main>
