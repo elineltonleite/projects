@@ -1,5 +1,5 @@
 /* criar o banco*/
-CREATE DATABASE `db_sysBar` CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE `db_sysbar` CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 /*criar a tabela comanda*/
 

@@ -2,14 +2,17 @@
 	padding:0;
 	margin:0;
 	box-sizing:border-box;
-	font-family:arial;
+	/*font-family:arial;*/
+	font-family: arial,sans-serif;
 	font-size:14px;
 }
 body,html{
-	background:#eee;
 	height:100%;
+}
+body{
+	background:#eee;
 	display:grid;
-	grid-template-columns: 2fr 3fr;
+	grid-template-columns: 100px 3fr 1fr;
 }
 nav{
 	color:white;
@@ -18,27 +21,44 @@ nav{
 	background:#0B9965;
 	color:white;
 	height:100%;
+}
+nav header{
 	padding:20px;
-	width:100%;
+	background:#044716;
+	text-align:center;
+}
+nav ul{
+	padding:20px;
+	text-align:center;
 }
 nav ul li{
 	list-style:none;
 	margin:10px 0;
+	
+}
+nav ul li a:hover{
+	color: yellow;	
 }
 nav a{
 	text-decoration:none;
 	color:white;
 }
-main{
-	padding:10px;
-	/*background:blue;*/
-	
+main,aside{
+	padding:10px;	
 }
-.divComandas{
+aside{
+	background:#eee;
+}
+.divCotainer{
 	background:white;
-	width:800px;
-	height:98%;
+	
+	height:100%;
 	padding:20px;
+}
+.divContainerAside{
+	padding:20px;
+	height:100%;
+	background:white;
 }
 #formCadProd{
 	
@@ -70,15 +90,17 @@ main{
 	color:white;
 }
 #divTable{
-	margin-top:30px;
+	margin-top:50px;
 	font-size:12px;
 }
-
+.containerTable{
+	height:400px;
+	overflow:auto;
+	
+}
 #divTable table{
 	width:100%;
-	height:200px;
 	border-collapse:collapse;
-	overflow:auto;
 	
 }
 #divTable table tr th{
@@ -98,12 +120,13 @@ main{
 	background:#0B9965;
 	color:white;
 }
+
 .alignCenter{text-align:center;}
 .alignLeft{text-align:left;}
 .alignRight{text-align:right;}
 .div-h2{
 	width:100%;
-		border-bottom:2px solid #0B9965;
+		border-bottom:3px solid #0B9965;
 	/*border-bottom:2px solid black;*/
 	font-size:18px;
 	margin-bottom:5px;
@@ -113,8 +136,20 @@ main{
 	background:#0B9965;
 	/*background:black;*/
 	text-shadow: 1px 1px 2px black;
+	/*margin-left:20px;*/
 	color:white;
 	width:200px;
 	padding: 5px 20px;
-	border-radius: 0 10px 0 10px ;
+	border-radius:  10px   10px 0 0;
 }
+.divMsg{
+	/*padding:5px;*/
+	margin-bottom:10px;
+}
+.bg-red{
+	background:red;
+	
+}
+.bg-blue{background:#5ECEE6;}
+.color-blue{color:#3539E6;}
+.color-red{color:red;}

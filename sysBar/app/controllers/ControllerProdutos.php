@@ -2,14 +2,31 @@
 
 class ControllerProdutos{
 	
-	public function menuProdutos(){
-		$menu = New MenuProdutos();
-		$menu->montaMenu();
+	public function msg($mensagem, $bg){
+		echo '<div class="divMsg '.$bg.'">'.$mensagem.'</div>';
 	}
 	
-	
-	public function formCadastrarProduto(){
+	public function formCadastrar(){
 		include_once'./app/views/formCadProduto.php';
+	}
+	
+	public function formEditar(){
+		include_once'./app/views/formEditProduto.php';
+	}
+	
+	public function editarProduto($id, $desc, $preco){
+		$produto = new Produto();
+		
+		$msg = $produto->editar($id,$desc, $preco);
+		
+		if($msg == 'ok'){
+			$this->msg('Sucesso!! Produto atualizado !!','color-blue');
+		}else{
+			$this->msg('Erro!! Não foi possível atualizar o produto, refaça a operação','color-red');
+		}
+		
+		$this->formCadastrar();
+		$this->produtosCadastrados();
 	}
 	
 	public function produtosCadastrados(){
@@ -17,10 +34,18 @@ class ControllerProdutos{
 			$produto->listarProdutosCadastrados();
 	}
 	public function cadastrarProduto($desc, $preco){
-			$produto = new Produto();
-			$produto->cadastrar($desc, $preco);
 		
-		}
+			$produto = new Produto();
+			$msg = $produto->cadastrar($desc, $preco);
+			
+			if($msg == 'ok'){
+				$this->msg('Sucesso!! Produto cadastrado !!','color-blue');
+			}else{
+				$this->msg('Erro!! Não foi possível cadastrar o produto, refaça a operação','color-red');
+			}
+		$this->formCadastrar();
+		$this->produtosCadastrados();	
+	}
 	
 }
 
@@ -28,26 +53,29 @@ class ControllerProdutos{
 
 
 $p = New ControllerProdutos();
-
+//$p->msg();
 
 
 $metodosPemitidos = [
-		'cadastrarProduto'
+		'cadastrarProduto',
+		'editarProduto',
+		'formEditar'
 ];
 
 // chama o methodo dinamicamente
 if(isset($_REQUEST['m'])){
 	$m = $_REQUEST['m'];
 	if(in_array($m,$metodosPemitidos)){
-		if($m == 'cadastrarProduto'){
+		if($m == 'cadastrarProduto') {
 			$p->$m($_REQUEST['txtDescricao'], $_REQUEST['txtPreco']);
+		}elseif($m == 'editarProduto'){
+			$p->$m($_REQUEST['id'],$_REQUEST['txtDescricao'], $_REQUEST['txtPreco']);
 		}else{
 			$p->$m();
 		}
 		
 	}
+}else{
+	$p->formCadastrar();
+	$p->produtosCadastrados();
 }
-
-
-$p->formCadastrarProduto();
-$p->produtosCadastrados();

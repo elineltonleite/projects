@@ -8,16 +8,17 @@
 <body>
 <nav>
 	<header>
+		<!--<img src="./imgs/bar.png" width="45px">-->
 		<h1>Bar do Shurek</h1>
 	</header>
 	
 	<ul>
-		<li><a href="?link=app/controllers/ControllerComandas"><img src="./imgs/bloco-de-anotacoes.png" width="45px"></a></li>
-		<li><a href="?link=app/controllers/ControllerProdutos"><img src="./imgs/produtos.png" width="45px"></a></li>
+		<li><a href="?link=app/controllers/ControllerComandas"><img src="./imgs/documentos.png" width="45px">Comandas</a></li>
+		<li><a href="?link=app/controllers/ControllerProdutos"><img src="./imgs/alcool.png" width="45px">Produtos</a></li>
 	</ul>
 </nav>
 <main>
-	<div class="divComandas">
+	<div class="divCotainer">
 	<?php
 		if(isset($_REQUEST['link'])){
 			$dir = $_REQUEST['link'].'.php';
@@ -28,5 +29,10 @@
 	?>
 	</div>
 </main>
+<aside>
+	<div class="divContainerAside">
+		aside
+	</div>
+</aside>
 </body>
 </html>
