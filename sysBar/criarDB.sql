@@ -6,9 +6,9 @@ CREATE DATABASE `db_sysbar` CHARACTER SET utf8 COLLATE utf8_general_ci;
 CREATE TABLE `comandas`(
 `id` INT(11) NOT NULL PRIMARY  KEY AUTO_INCREMENT,
 `mesa_cliente`  VARCHAR(255),
-`data` DATE,
-`inicio` TIME,
-`fim` TIME
+`data_inicio` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`data_fim` DATE,
+`status` VARCHAR(255)
     
 );
 

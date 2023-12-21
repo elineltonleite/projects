@@ -21,7 +21,7 @@ class Produto{
 	}
 	
 	public function editar($id, $desc, $preco){
-		$sql ="UPDATE `produtos` SET `descricao`='".$desc."', `preco_venda`=".$preco." WHERE id=".$id;
+		$sql ="UPDATE `produtos` SET `descricao`='".strtolower($desc)."', `preco_venda`=".$preco." WHERE id=".$id;
 		if($this->con->execSql($sql)){
 			return 'ok';
 		}else{

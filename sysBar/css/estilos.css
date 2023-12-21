@@ -12,7 +12,7 @@ body,html{
 body{
 	background:#eee;
 	display:grid;
-	grid-template-columns: 100px 3fr 1fr;
+	grid-template-columns: 100px 2fr 500px;
 }
 nav{
 	color:white;
@@ -63,7 +63,7 @@ aside{
 #formCadProd{
 	
 }
-#formCadProd div{
+#formCadProd div, #formComanda div{
 	display:inline-block;
 }
 #divPreco{
@@ -72,18 +72,18 @@ aside{
 #divDescricao{
 	width:320px;
 }
-#formCadProd input[type=text]{
+#formCadProd input[type=text],#formComanda div input[type=text]{
 	width:100%;
 	border: 2px solid #cecece;
 	border-radius: 5px;
 	padding:4px;
 }
-#formCadProd button{
+#formCadProd button, #formComanda button{
 	padding:4px 10px;
 	border:2px solid  #cecece;
 	border-radius: 5px;
 }
-#formCadProd button:hover{
+#formCadProd button:hover,#formComanda button:hover {
 	cursor:pointer;
 	background:#0B9965;
 	border:2px solid  #0B9965;
@@ -91,7 +91,7 @@ aside{
 }
 #divTable{
 	margin-top:50px;
-	font-size:12px;
+	font-size:10px;
 }
 .containerTable{
 	height:400px;
@@ -142,6 +142,10 @@ aside{
 	padding: 5px 20px;
 	border-radius:  10px   10px 0 0;
 }
+.div-h2 a{
+	display:inline-block;
+	text-decoration:none;
+}
 .divMsg{
 	/*padding:5px;*/
 	margin-bottom:10px;
@@ -153,3 +157,26 @@ aside{
 .bg-blue{background:#5ECEE6;}
 .color-blue{color:#3539E6;}
 .color-red{color:red;}
+
+.boxComanda{
+	font-weight:bold;
+	background:#F78B5E;
+	width:115px;
+	height:100px;
+	margin:5px;
+	text-align:center;
+	padding:10px;
+}
+
+.boxComanda:hover{
+	background:#FA7E01;
+	cursor:pointer;
+}
+.divContainerBoxComandas{
+	display:grid;
+	grid-template-columns: repeat(5, 1fr);
+}
+.divContainerBoxComandas a{
+	text-decoration:none;
+	color:black;
+}
