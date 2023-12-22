@@ -12,7 +12,7 @@ body,html{
 body{
 	background:#eee;
 	display:grid;
-	grid-template-columns: 100px 2fr 500px;
+	grid-template-columns: 100px 2fr 470px;
 }
 nav{
 	color:white;
@@ -60,30 +60,43 @@ aside{
 	height:100%;
 	background:white;
 }
-#formCadProd{
-	
+#formCadConsumo input[type=number],select{
+	width:100%;
+	border: 2px solid #cecece;
+	border-radius: 5px;
+	padding:4px;
 }
-#formCadProd div, #formComanda div{
+
+#divQtd{
+	width:50px;
+}
+#divProduto{
+	width:270px;
+}
+
+
+#formCadProd div, #formComanda div, #formCadConsumo div{
 	display:inline-block;
 }
+
 #divPreco{
 	width:80px;
 }
 #divDescricao{
 	width:320px;
 }
-#formCadProd input[type=text],#formComanda div input[type=text]{
+#formCadProd input[type=text],#formComanda div input[type=text],#formCadConsumo input[type=text]{
 	width:100%;
 	border: 2px solid #cecece;
 	border-radius: 5px;
 	padding:4px;
 }
-#formCadProd button, #formComanda button{
+#formCadProd button, #formComanda button,#formCadConsumo button{
 	padding:4px 10px;
 	border:2px solid  #cecece;
 	border-radius: 5px;
 }
-#formCadProd button:hover,#formComanda button:hover {
+#formCadProd button:hover,#formComanda button:hover,#formCadConsumo button:hover{
 	cursor:pointer;
 	background:#0B9965;
 	border:2px solid  #0B9965;
@@ -94,6 +107,7 @@ aside{
 	font-size:10px;
 }
 .containerTable{
+	font-size:10px;
 	height:400px;
 	overflow:auto;
 	
@@ -159,7 +173,7 @@ aside{
 .color-red{color:red;}
 
 .boxComanda{
-	font-weight:bold;
+	/*font-weight:bold;*/
 	background:#F78B5E;
 	width:115px;
 	height:100px;
@@ -172,6 +186,12 @@ aside{
 	background:#FA7E01;
 	cursor:pointer;
 }
+.boxComanda p{
+	margin-top:5px;
+}
+.boxComanda .pNum{
+	border-bottom:2px solid black;
+}
 .divContainerBoxComandas{
 	display:grid;
 	grid-template-columns: repeat(5, 1fr);
@@ -179,4 +199,24 @@ aside{
 .divContainerBoxComandas a{
 	text-decoration:none;
 	color:black;
+}
+#divTopoAside{
+	/*background:#072902;*/
+	background:#044716;
+	color:white;
+	padding:10px;
+	margin-bottom:40px;
+}
+.diValorTot{
+	background:red;
+	padding:10px;
+	color:white;
+	text-align:right;
+}
+.diValorTot span{
+	font-size:20px;
+}
+#tableConsumo{
+	width:100%;
+	margin:20px 0;
 }

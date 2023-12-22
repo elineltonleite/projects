@@ -12,6 +12,14 @@ CREATE TABLE `comandas`(
     
 );
 
+CREATE TABLE `consumos`(
+`id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`id_comanda` INT,
+`produto` VARCHAR(255),
+`valor_unitario` DECIMAL(10, 2),
+`qtd` INT,
+`total` DECIMAL(10,2)
+)
 
 CREATE TABLE `produtos`(
 	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

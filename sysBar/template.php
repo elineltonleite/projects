@@ -33,32 +33,16 @@
 	<div class="divContainerAside">
 		<?php 
 			if(isset($_REQUEST['aside'])== 'true'){
-				echo 'Nº : '.$_REQUEST['id'].'<br>';
-				echo 'Mesa : '.$_REQUEST['mesa'];
-				echo'
-				<div id="menuComanda">
-				<div class="div-h2">
-					<h2>Add Gasto</h2>
-				</div>
-				<form>
-					<div>
-						<label for="">Item</label>
-						<input type="text" name="" id="" autofocus>
-					</div>
-					<div>
-						<label for="">qtd</label>
-						<input type="number" name="" id="" autofocus>
-					</div>
-					<div>
-						<button>Enviar<button>
-					</div>	
-				</form>
-				<div class="div-h2">
-					<h2>Comandas em aberto</h2>
-				</div>
-				</div>	
-				';
+				echo'<div id="divTopoAside">';
+					echo 'Nº Comanda: '.$_REQUEST['id'].'<br>';
+					echo 'Mesa / Cliente : '.$_REQUEST['mesa'];
+				echo'</div>';
+				include_once'./app/views/formCadConsumo.php';
+				$c = new ControllerComandas();	
+				$c->consultaComadaPorNumero($_REQUEST['id']);		
+				echo'';	
 			}
+			
 		?>
 	</div>
 </aside>

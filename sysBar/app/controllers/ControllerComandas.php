@@ -9,9 +9,18 @@ class ControllerComandas{
 	
 	public function mostraComandas(){
 		$comandas = new Comandas();
-		$comandas->comandasAbertas();
+		$result = $comandas->comandasAbertas();
+		include_once'./app/views/listaComandasAbertas.php';	
+	}
+	
+	public function consultaComadaPorNumero($idComanda){
+		$comandas = new Comandas();
+		$result = $comandas->consultaComanda($idComanda);
+		include_once'./app/views/listaConsumoPorIdComanda.php';
 		
 	}
+	
+	
 	public function menu(){
 		$menu= new MenuComanda();
 		$menu->montaMenu();
@@ -29,13 +38,22 @@ class ControllerComandas{
 		
 		
 	}
+	public function addConsumo($idComanda,$mesa,$idProduto, $qtd){
+		$comandas = new Comandas();
+		$comandas->cadastraConsumo($idComanda,$idProduto, $qtd);
+		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&id='.$idComanda.'&mesa='.$mesa.'&aside=true');
+	}
 }
+
+
+
 
 $c = new ControllerComandas();
 
 $metodosPemitidos = [
 		'abrirComanda',
-		'mostraComandas'
+		'mostraComandas',
+		'addConsumo'
 ];
 
 // chama o methodo dinamicamente
@@ -45,6 +63,8 @@ if(isset($_REQUEST['m'])){
 		
 		if($m == 'abrirComanda') {
 			$c->$m($_REQUEST['txtNomeComanda']);
+		}else if($m == 'addConsumo') {
+			$c->$m($_REQUEST['comanda'], $_REQUEST['mesa'],$_REQUEST['txtProduto'], $_REQUEST['txtQtd']);
 		}else{
 			$c->$m();
 		}		
