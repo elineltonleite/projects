@@ -7,15 +7,15 @@ class ControllerComandas{
 	}
 	
 	
-	public function mostraComandas(){
+	public function mostraComandas($status){
 		$comandas = new Comandas();
-		$result = $comandas->comandasAbertas();
+		$result = $comandas->comandasAbertas($status);
 		include_once'./app/views/listaComandasAbertas.php';	
 	}
 	
 	public function consultaComadaPorNumero($idComanda){
 		$comandas = new Comandas();
-		$result = $comandas->consultaComanda($idComanda);
+		$result = $comandas->consultaConsumoComanda($idComanda);
 		include_once'./app/views/listaConsumoPorIdComanda.php';
 		
 	}
@@ -38,10 +38,30 @@ class ControllerComandas{
 		
 		
 	}
-	public function addConsumo($idComanda,$mesa,$idProduto, $qtd){
+	public function addConsumo($idComanda, $mesa, $idProduto, $qtd){
 		$comandas = new Comandas();
-		$comandas->cadastraConsumo($idComanda,$idProduto, $qtd);
-		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&id='.$idComanda.'&mesa='.$mesa.'&aside=true');
+		$comandas->cadastraConsumo($idComanda, $idProduto, $qtd);
+		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente&id='.$idComanda.'&mesa='.$mesa.'&aside=true');
+	}
+	public function deletConsumo($id, $idComanda){
+		$comandas = new Comandas();
+		$comandas-> removerConsumo($id);
+		
+		//recupera os dados da comanda 
+		$result = $comandas->consultaComanda($idComanda);
+		
+		while($row = $result->fetch_array(MYSQLI_ASSOC)){
+			$mesa = ucfirst($row['mesa_cliente']);
+		}
+		
+		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente&id='.$idComanda.'&mesa='.$mesa.'&aside=true');
+		//echo $mesa;
+	}
+	
+	public function fecharComanda($idComanda, $status){
+		$comandas = new Comandas();
+		$comandas->encerrarComanda($idComanda, $status);
+		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente');
 	}
 }
 
@@ -53,7 +73,9 @@ $c = new ControllerComandas();
 $metodosPemitidos = [
 		'abrirComanda',
 		'mostraComandas',
-		'addConsumo'
+		'addConsumo',
+		'deletConsumo',
+		'fecharComanda'
 ];
 
 // chama o methodo dinamicamente
@@ -63,8 +85,22 @@ if(isset($_REQUEST['m'])){
 		
 		if($m == 'abrirComanda') {
 			$c->$m($_REQUEST['txtNomeComanda']);
+		}else if($m == 'mostraComandas') {
+			
+			$c->$m($_REQUEST['status']);
+			
 		}else if($m == 'addConsumo') {
-			$c->$m($_REQUEST['comanda'], $_REQUEST['mesa'],$_REQUEST['txtProduto'], $_REQUEST['txtQtd']);
+			
+			$c->$m($_REQUEST['comanda'], $_REQUEST['mesa'], $_REQUEST['txtProduto'], $_REQUEST['txtQtd']);
+			
+		}else if($m == 'deletConsumo') {
+			
+			$c->$m($_REQUEST['id'], $_REQUEST['comanda']);
+			
+		}else if($m == 'fecharComanda') {
+			
+			$c->$m($_REQUEST['id'],$_REQUEST['txtDescricao']);
+			
 		}else{
 			$c->$m();
 		}		

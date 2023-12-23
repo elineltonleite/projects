@@ -11,8 +11,6 @@ class Produto{
 	public function cadastrar($desc, $preco){
 		
 		$sql ="INSERT INTO `produtos` VALUES(default, '".strtolower($desc)."', ".$preco.")";
-		$this->con->execSql($sql);
-		
 		if($this->con->execSql($sql)){
 			return 'ok';
 		}else{
@@ -30,7 +28,7 @@ class Produto{
 	}
 	
 	public function listarProdutosCadastrados(){
-		$sql ="SELECT * FROM `produtos`";
+		$sql ="SELECT * FROM `produtos` ORDER BY `descricao` ASC";
 		return $this->con->execSql($sql);
 	}
 	

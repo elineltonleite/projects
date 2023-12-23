@@ -41,11 +41,12 @@ class ControllerProdutos{
 			
 			if($msg == 'ok'){
 				$this->msg('Sucesso!! Produto cadastrado !!','color-blue');
+					
 			}else{
 				$this->msg('Erro!! Não foi possível cadastrar o produto, refaça a operação','color-red');
 			}
 		$this->formCadastrar();
-		$this->produtosCadastrados();	
+		$this->produtosCadastrados();
 	}
 	
 }

@@ -7,6 +7,7 @@ echo'
 			<th class="alignLeft">Val Unit</th>
 			<th class="alignCenter">Qtd</th>
 			<th class="alignLeft">Total</th>
+			<!--<th class="alignCenter"></th>-->
 		</tr>
 	
 ';
@@ -17,6 +18,7 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)){
 			echo'<td class="alignLeft">R$ '.$row['valor_unitario'].'</td>';
 			echo'<td class="alignCenter">'.$row['qtd'].'</td>';
 			echo'<td class="alignLeft">R$ '.$row['total'].'</td>';
+			echo'<td class="alignCenter"><a href="?link=app/controllers/ControllerComandas&m=deletConsumo&id='.$row['id'].'&comanda='.$row['id_comanda'].'"><img src="./imgs/eliminar.png"></a></td>';
 		echo'<tr>';
 		$total += $row['total'];
 }

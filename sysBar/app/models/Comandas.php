@@ -6,15 +6,20 @@ class Comandas{
 	public function __construct(){
 		$this->con = new ConexaoMysql();
 	}
-	public function  comandasAbertas(){
-			$sql ="SELECT * FROM `comandas` WHERE `status`='pendente'";
+	public function  comandasAbertas($status){
+			//$sql ="SELECT * FROM `comandas` WHERE `status`='pendente'";
+			$sql ="SELECT * FROM `comandas` WHERE `status`='".$status."'";
+			return $this->con->execSql($sql);
+			
+	}
+	public function consultaConsumoComanda($idComanda){
+			$sql ="SELECT * FROM `consumos`  WHERE `id_comanda`=".$idComanda;
 			return $this->con->execSql($sql);
 			
 	}
 	public function consultaComanda($idComanda){
-			$sql ="SELECT * FROM `consumos`  WHERE `id_comanda`=".$idComanda;
+		$sql ="SELECT * FROM `comandas`  WHERE `id`=".$idComanda;
 			return $this->con->execSql($sql);
-			
 	}
 	
 	public function abrirComanda($nomeComanda){
@@ -27,6 +32,11 @@ class Comandas{
 		}else{
 			return 'erro';
 		}
+	}
+	public function encerrarComanda($idComanda,$status){
+		date_default_timezone_set('America/Sao_Paulo');
+		$sql="UPDATE `comandas` SET `status`='".$status."', `data_fim`='".date('Y-m-d')."' WHERE id=".$idComanda;
+		$this->con->execSql($sql);
 	}
 	
 	public function cadastraConsumo($idComanda,$idProduto, $qtd){
@@ -43,6 +53,11 @@ class Comandas{
 		$sql = "INSERT INTO `consumos` VALUES(default, ".$idComanda.",'".$descProduto."',".$valor.",".$qtd.",".($qtd*$valor).")";
 		$this->con->execSql($sql);
 	
+	}
+	
+	public function removerConsumo($id){
+		$sql ="DELETE FROM `consumos` WHERE id=".$id;
+		$this->con->execSql($sql);
 	}
 }
 

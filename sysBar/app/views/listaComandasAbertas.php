@@ -6,7 +6,7 @@ echo '<div class="div-h2">
 	</div>	
 	<div class="divContainerBoxComandas">';
 		while($row= $result->fetch_array(MYSQLI_ASSOC)){
-			echo'<a href="?link=app/controllers/ControllerComandas&m=mostraComandas&id='.$row['id'].'&mesa='.ucfirst($row['mesa_cliente']).'&aside=true">';
+			echo'<a href="?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente&id='.$row['id'].'&mesa='.ucfirst($row['mesa_cliente']).'&aside=true">';
 			echo'<div class="boxComanda">';
 			//echo'<div class="divInfoBoxComanda">';
 			echo'<p class="pNum">'.$row['id'].'</span>';

@@ -39,8 +39,15 @@
 				echo'</div>';
 				include_once'./app/views/formCadConsumo.php';
 				$c = new ControllerComandas();	
-				$c->consultaComadaPorNumero($_REQUEST['id']);		
-				echo'';	
+				$c->consultaComadaPorNumero($_REQUEST['id']);	
+				echo'
+					<a href="?link=./app/views/formFecharComanda&id='.$_REQUEST['id'].'">
+						<div id="divFecharComanda">
+							Fechar Comanda
+						</div>
+					</a>
+					';
+					
 			}
 			
 		?>
