@@ -4,6 +4,7 @@
 	<title>Controle de comandas</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="icon" href="./imgs/notas.png">
 </head>
 <body>
 <nav>
@@ -15,6 +16,7 @@
 	<ul>
 		<li><a href="?link=app/controllers/ControllerComandas"><img src="./imgs/documentos.png" width="45px">Comandas</a></li>
 		<li><a href="?link=app/controllers/ControllerProdutos"><img src="./imgs/alcool.png" width="45px">Produtos</a></li>
+		<li><a href="?link="><img src="./imgs/money.png" width="45px">Gestão</a></li>
 	</ul>
 </nav>
 <main>
@@ -39,9 +41,9 @@
 				echo'</div>';
 				include_once'./app/views/formCadConsumo.php';
 				$c = new ControllerComandas();	
-				$c->consultaComadaPorNumero($_REQUEST['id']);	
+				$tot = $c->consultaComadaPorNumero($_REQUEST['id']);	
 				echo'
-					<a href="?link=./app/views/formFecharComanda&id='.$_REQUEST['id'].'">
+					<a href="?link=./app/views/formFecharComanda&id='.$_REQUEST['id'].'&mesa='.$_REQUEST['mesa'].'&total='.$tot.'">
 						<div id="divFecharComanda">
 							Fechar Comanda
 						</div>

@@ -22,7 +22,7 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)){
 			<option></option>
 			<?php
 				for($i=0; $i<count($produtos); $i++){
-					echo '<option value="'.$id[$i].'">'.$produtos[$i].'</option>';
+					echo '<option value="'.$id[$i].'">'.ucfirst($produtos[$i]).'</option>';
 				}
 			?>
 		</select>

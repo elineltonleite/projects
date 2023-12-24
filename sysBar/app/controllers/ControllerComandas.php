@@ -10,13 +10,18 @@ class ControllerComandas{
 	public function mostraComandas($status){
 		$comandas = new Comandas();
 		$result = $comandas->comandasAbertas($status);
-		include_once'./app/views/listaComandasAbertas.php';	
+		if($status == 'pendente'){
+			include_once'./app/views/listaComandasAbertas.php';	
+		}else if($status=='A receber'){
+			include_once'./app/views/listaComandasAReceber.php';	
+		}
 	}
 	
 	public function consultaComadaPorNumero($idComanda){
 		$comandas = new Comandas();
 		$result = $comandas->consultaConsumoComanda($idComanda);
 		include_once'./app/views/listaConsumoPorIdComanda.php';
+		return $total;
 		
 	}
 	
@@ -58,9 +63,10 @@ class ControllerComandas{
 		//echo $mesa;
 	}
 	
-	public function fecharComanda($idComanda, $status){
+	public function fecharComanda($idComanda, $status,$total){
+		
 		$comandas = new Comandas();
-		$comandas->encerrarComanda($idComanda, $status);
+		$comandas->encerrarComanda($idComanda, $status, $total);
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente');
 	}
 }
@@ -99,7 +105,7 @@ if(isset($_REQUEST['m'])){
 			
 		}else if($m == 'fecharComanda') {
 			
-			$c->$m($_REQUEST['id'],$_REQUEST['txtDescricao']);
+			$c->$m($_REQUEST['id'],$_REQUEST['txtDescricao'],$_REQUEST['total']);
 			
 		}else{
 			$c->$m();

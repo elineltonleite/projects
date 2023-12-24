@@ -33,10 +33,10 @@ class Comandas{
 			return 'erro';
 		}
 	}
-	public function encerrarComanda($idComanda,$status){
+	public function encerrarComanda($idComanda,$status,$total){
 		date_default_timezone_set('America/Sao_Paulo');
-		$sql="UPDATE `comandas` SET `status`='".$status."', `data_fim`='".date('Y-m-d')."' WHERE id=".$idComanda;
-		$this->con->execSql($sql);
+		$sql="UPDATE `comandas` SET `status`='".$status."', `data_fim`='".date('Y-m-d')."', `total`=".$total." WHERE id=".$idComanda;
+		$this->con->execSql($sql);		
 	}
 	
 	public function cadastraConsumo($idComanda,$idProduto, $qtd){

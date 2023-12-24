@@ -14,7 +14,7 @@ echo'
 $total= 0;
 while($row = $result->fetch_array(MYSQLI_ASSOC)){
 		echo'<tr>';
-			echo'<td class="alignLeft">'.$row['produto'].'</td>';
+			echo'<td class="alignLeft">'.ucfirst($row['produto']).'</td>';
 			echo'<td class="alignLeft">R$ '.$row['valor_unitario'].'</td>';
 			echo'<td class="alignCenter">'.$row['qtd'].'</td>';
 			echo'<td class="alignLeft">R$ '.$row['total'].'</td>';

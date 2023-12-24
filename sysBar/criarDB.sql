@@ -8,7 +8,8 @@ CREATE TABLE `comandas`(
 `mesa_cliente`  VARCHAR(255),
 `data_inicio` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `data_fim` DATE,
-`status` VARCHAR(255)
+`status` VARCHAR(255),
+`total` DECIMAL(10, 2)
     
 );
 
