@@ -226,3 +226,29 @@ aside{
 	width:100%;
 	text-align:right;
 }
+
+.tableAReceber{
+	width:50%;
+	border-collapse:collapse;
+}
+.trTopoARecebe{
+	background:#044716;
+
+}
+.trTopoARecebe td{ 
+	color:white;
+	
+	font-size:15px;
+	padding:2px 8px;
+	border-radius:5px 0 5px 0;
+}
+
+.trUltima td{
+	/*background:#F54626;*/
+	color:black;
+	padding:2px;
+}
+.trUltima a{
+	/*color:yellow;*/
+	font-weight:bold;
+}

@@ -18,7 +18,9 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)){
 			echo'<td class="alignLeft">R$ '.$row['valor_unitario'].'</td>';
 			echo'<td class="alignCenter">'.$row['qtd'].'</td>';
 			echo'<td class="alignLeft">R$ '.$row['total'].'</td>';
-			echo'<td class="alignCenter"><a href="?link=app/controllers/ControllerComandas&m=deletConsumo&id='.$row['id'].'&comanda='.$row['id_comanda'].'"><img src="./imgs/eliminar.png"></a></td>';
+			if($_REQUEST['status']=='pendente'){
+				echo'<td class="alignCenter"><a href="?link=app/controllers/ControllerComandas&m=deletConsumo&id='.$row['id'].'&comanda='.$row['id_comanda'].'"><img src="./imgs/eliminar.png"></a></td>';
+			}
 		echo'<tr>';
 		$total += $row['total'];
 }

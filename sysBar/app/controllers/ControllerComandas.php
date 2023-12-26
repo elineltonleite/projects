@@ -40,7 +40,7 @@ class ControllerComandas{
 		}
 		$menu= new MenuComanda();
 		$menu->montaMenu();
-		
+		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente');
 		
 	}
 	public function addConsumo($idComanda, $mesa, $idProduto, $qtd){
@@ -69,6 +69,16 @@ class ControllerComandas{
 		$comandas->encerrarComanda($idComanda, $status, $total);
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente');
 	}
+	
+	public function fecharVariasComanda($cmds, $status, $total){
+		$comandas = new Comandas();
+		$arComandas = explode(' ',trim($cmds));
+		
+		foreach($arComandas as $comanda){
+			$comandas->encerrarComanda($comanda, $status, $total);
+		}
+		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=A receber');
+	}
 }
 
 
@@ -81,7 +91,8 @@ $metodosPemitidos = [
 		'mostraComandas',
 		'addConsumo',
 		'deletConsumo',
-		'fecharComanda'
+		'fecharComanda',
+		'fecharVariasComanda'
 ];
 
 // chama o methodo dinamicamente
@@ -106,6 +117,10 @@ if(isset($_REQUEST['m'])){
 		}else if($m == 'fecharComanda') {
 			
 			$c->$m($_REQUEST['id'],$_REQUEST['txtDescricao'],$_REQUEST['total']);
+			
+		}else if($m == 'fecharVariasComanda') {
+			
+			$c->$m($_REQUEST['comandas'],$_REQUEST['txtDescricao'],$_REQUEST['total']);
 			
 		}else{
 			$c->$m();
