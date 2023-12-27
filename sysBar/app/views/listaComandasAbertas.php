@@ -10,7 +10,7 @@ echo '<div class="div-h2">
 			echo'<div class="boxComanda">';
 			//echo'<div class="divInfoBoxComanda">';
 			echo'<p class="pNum">'.$row['id'].'</span>';
-			echo '<p>'.ucfirst($row['mesa_cliente']).'</p>';
+			echo '<p>'.ucwords($row['mesa_cliente']).'</p>';
 			//echo'</div>';
 			echo'</div>';
 			echo'</a>';

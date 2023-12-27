@@ -97,33 +97,33 @@ $metodosPemitidos = [
 
 // chama o methodo dinamicamente
 if(isset($_REQUEST['m'])){
-	$m = $_REQUEST['m'];
-	if(in_array($m,$metodosPemitidos)){
+	$metodo = $_REQUEST['m'];
+	if(in_array($metodo,$metodosPemitidos)){
 		
-		if($m == 'abrirComanda') {
-			$c->$m($_REQUEST['txtNomeComanda']);
-		}else if($m == 'mostraComandas') {
+		if($metodo == 'abrirComanda') {
+			$c->$metodo($_REQUEST['txtNomeComanda']);
+		}else if($metodo == 'mostraComandas') {
 			
-			$c->$m($_REQUEST['status']);
+			$c->$metodo($_REQUEST['status']);
 			
-		}else if($m == 'addConsumo') {
+		}else if($metodo == 'addConsumo') {
 			
-			$c->$m($_REQUEST['comanda'], $_REQUEST['mesa'], $_REQUEST['txtProduto'], $_REQUEST['txtQtd']);
+			$c->$metodo($_REQUEST['comanda'], $_REQUEST['mesa'], $_REQUEST['txtProduto'], $_REQUEST['txtQtd']);
 			
-		}else if($m == 'deletConsumo') {
+		}else if($metodo == 'deletConsumo') {
 			
-			$c->$m($_REQUEST['id'], $_REQUEST['comanda']);
+			$c->$metodo($_REQUEST['id'], $_REQUEST['comanda']);
 			
-		}else if($m == 'fecharComanda') {
+		}else if($metodo == 'fecharComanda') {
 			
-			$c->$m($_REQUEST['id'],$_REQUEST['txtDescricao'],$_REQUEST['total']);
+			$c->$metodo($_REQUEST['id'],$_REQUEST['txtDescricao'],$_REQUEST['total']);
 			
-		}else if($m == 'fecharVariasComanda') {
+		}else if($metodo == 'fecharVariasComanda') {
 			
-			$c->$m($_REQUEST['comandas'],$_REQUEST['txtDescricao'],$_REQUEST['total']);
+			$c->$metodo($_REQUEST['comandas'],$_REQUEST['txtDescricao'],$_REQUEST['total']);
 			
 		}else{
-			$c->$m();
+			$c->$metodo();
 		}		
 	}
 }else{

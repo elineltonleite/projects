@@ -1,22 +1,32 @@
 <?php
 
 class ControllerGestao{
-	public function vendas(){
+	
+	public function retornaTodasComandas($cliente, $data){
 		$gestao = new Gestao();
-		$result = $gestao->retornaVendas();
-		while($row = $result->fetch_array(MYSQLI_ASSOC)){
-			echo $row['id'].'--';
-			echo $row['mesa_cliente'].'--';
-			echo $row['data_inicio'].'--';
-			echo $row['data_fim'].'--';
-			echo $row['status'].'--';
-			echo $row['total'].'<br>';
-			
-		}
-		
-		
+		$result = $gestao->retornaComandasComFiltro($cliente, $data);
+		include_once'./app/views/listaTodasComandas.php';
 	}
+	
 }
 
+
+include_once'./app/views/formGestaoComandas.php';	
+
 $c = new ControllerGestao();
-$c->vendas();
+
+$metodosPermitidos=[
+	'retornaTodasComandas'
+];
+
+if(isset($_REQUEST['m'])){
+	$metodo = $_REQUEST['m'];
+	
+	if(in_array($metodo, $metodosPermitidos)){
+		if($metodo == 'retornaTodasComandas'){
+			$c->$metodo($_REQUEST['txtCliente'], $_REQUEST['txtData']);
+		}
+	}
+	
+}
+

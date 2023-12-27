@@ -14,7 +14,7 @@
 		
 		$total = 0;
 		echo '<tr class="trTopoARecebe">
-				<td colspan="3">'.ucfirst($mesa).'</td>
+				<td colspan="3">'.ucwords($mesa).'</td>
 			</tr>';
 			echo'
 				<tr>
