@@ -1,6 +1,6 @@
 	<div>
 	<?php 
-	echo 'Mesa / Cliente : '.ucfirst($_REQUEST['mesa']).'<br>';
+	echo 'Cliente  : '.ucfirst($_REQUEST['mesa']).'<br>';
 	echo 'Comandas : '.$_REQUEST['comandas'].'<br>';
 	echo 'Total: R$ '.number_format($_REQUEST['total'], 2, ',', '.').'<br><br>';
 	?>
@@ -26,7 +26,6 @@
 			<option>Pagamento Cart. Debito</option>
 			<option>Pagamento Dinheiro</option>
 			<option>Pagamento Pix</option>
-			<option>Sem Consumo</option>
 		</select>
 	</div>
 	<div>

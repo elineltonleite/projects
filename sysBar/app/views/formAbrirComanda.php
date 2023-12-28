@@ -6,7 +6,7 @@
 		<h2>Abrir Comandas</h2>
 	</div>
 	<div>
-		<label for="txtxNomeComanda">Mesa / Cliente:</label>
+		<label for="txtxNomeComanda">Cliente / Mesa </label>
 		<input type="text" name="txtNomeComanda" id="txtNomeComanda" autofocus required>
 	</div>
 	<div>

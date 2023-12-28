@@ -39,7 +39,9 @@
 					echo 'Nº Comanda: '.$_REQUEST['id'].'<br>';
 					echo 'Mesa / Cliente : '.$_REQUEST['mesa'];
 				echo'</div>';
-				include_once'./app/views/formCadConsumo.php';
+				if($_REQUEST['status']=='pendente'){
+					include_once'./app/views/formCadConsumo.php';
+				}	
 				$c = new ControllerComandas();	
 				$tot = $c->consultaComadaPorNumero($_REQUEST['id']);
 				

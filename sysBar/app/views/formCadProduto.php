@@ -7,11 +7,11 @@
 	<input type="hidden" name="link" value="app/controllers/ControllerProdutos">
 	<input type="hidden" name="m" value="cadastrarProduto">
 	<div id="divDescricao">
-		<label for="txtDescricao">Descrição:</labeL>
+		<label for="txtDescricao">Descrição</labeL>
 		<input type="text" id="txtDescricao" name="txtDescricao"autofocus required>
 	</div>
 	<div id="divPreco">
-		<label for="txtPreco">Preço:</labeL>
+		<label for="txtPreco">Preço</labeL>
 		<input type="text" id="txtPreco" name="txtPreco" required>
 	</div>
 	<div>

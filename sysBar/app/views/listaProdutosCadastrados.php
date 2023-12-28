@@ -1,6 +1,6 @@
 <?php
 
-echo'<div id="divTable">
+echo'<div class="divTopoTable">
 		<div class="div-h2">
 			<h2>Produtos Cadastrados</h2>
 		</div>	

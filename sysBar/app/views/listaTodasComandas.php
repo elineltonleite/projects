@@ -1,10 +1,13 @@
-<div class="div-h2">
-		<h2>Resultado da Consulta</h2>
-	</div>
 
 <?php
 
 	echo'
+		<div class="divTopoTable">
+			<div class="div-h2">
+			<h2>Resultado da Consulta</h2>
+		</div>
+
+		<div class="containerTable">
 		<table>
 			<tr>
 				<th class="alignCenter">Comanda</th>
@@ -22,9 +25,12 @@
 				echo '<td class="alignLeft">'.$row['data_inicio'].'</td>';
 				echo '<td class="alignLeft">'.$row['data_fim'].'</td>';
 				echo '<td class="alignLeft">'.$row['status'].'</td>';
-				echo '<td class="alignLeft">'.$row['total'].'</td>';
+				echo '<td class="alignLeft">R$'.$row['total'].'</td>';
 			echo'</tr>';
 			
 		}
 		
-	echo'</table>';	
+	echo'
+		</table>
+		</div>
+	';	

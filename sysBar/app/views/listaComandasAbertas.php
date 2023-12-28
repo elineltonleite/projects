@@ -7,12 +7,11 @@ echo '<div class="div-h2">
 	<div class="divContainerBoxComandas">';
 		while($row= $result->fetch_array(MYSQLI_ASSOC)){
 			echo'<a href="?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente&id='.$row['id'].'&mesa='.ucfirst($row['mesa_cliente']).'&aside=true">';
-			echo'<div class="boxComanda">';
-			//echo'<div class="divInfoBoxComanda">';
-			echo'<p class="pNum">'.$row['id'].'</span>';
-			echo '<p>'.ucwords($row['mesa_cliente']).'</p>';
-			//echo'</div>';
-			echo'</div>';
+			
+				echo'<div class="boxComanda">';
+					echo'<div class="spanComanda">'.$row['id'].'</div>';
+					echo '<div class="spanCliente">'.ucwords($row['mesa_cliente']).'</div>';
+				echo'</div>';
 			echo'</a>';
 		}
 		echo'</div>';
