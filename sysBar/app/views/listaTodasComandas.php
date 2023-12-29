@@ -1,5 +1,11 @@
 
 <?php
+$receber = 0;
+$pix = 0;
+$cartDeb = 0;
+$cartCred = 0;
+$din = 0;
+
 
 	echo'
 		<div class="divTopoTable">
@@ -18,6 +24,7 @@
 				<th class="alignLeft">Valor</th>
 			</tr>
 	';	
+	
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 			echo'<tr>';
 				echo '<td class="alignCenter">'.$row['id'].'</td>';
@@ -28,9 +35,30 @@
 				echo '<td class="alignLeft">R$'.$row['total'].'</td>';
 			echo'</tr>';
 			
+			if($row['status'] == 'A Receber'){
+				$receber +=$row['total'];
+				
+			}else if($row['status'] == 'Pagamento Pix'){
+				$pix +=$row['total'];
+				
+			}else if($row['status'] == 'Pagamento Cart. Debito'){
+				$cartDeb +=$row['total'];
+				
+			}else if($row['status'] == 'Pagamento Cart. Credito'){
+				$cartCred +=$row['total'];
+				
+			}else if($row['status'] == 'Pagamento Dinheiro'){
+				$din +=$row['total'];
+				
+			}
+				
+			
 		}
 		
 	echo'
 		</table>
+			<div class="divSomas">
+				Din:R$ '.number_format($din, 2, ',', '.').' || Pix: R$ '.number_format($pix, 2, ',', '.').' || Cred: R$ '.number_format($cartCred, 2, ',', '.').' || Deb:R$ '.number_format($cartDeb, 2, ',', '.').' || Receb:R$ '.number_format($receber, 2, ',', '.').' || Total:'.number_format($receber+$pix+$cartDeb+$cartCred+$din, 2, ',', '.').'
+			</div>
 		</div>
 	';	

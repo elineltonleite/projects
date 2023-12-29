@@ -15,12 +15,12 @@ class Gestao{
 		}else if(isset($data) && !empty($data)){
 			$sql .="WHERE `data_inicio` LIKE '%".$data."%'";
 		}
-		
+		/*
 		if(isset($data) && !empty($data)&&isset($cliente) && !empty($cliente)){
 			$sql .="WHERE `data_inicio` LIKE '%".$data."%' and `mesa_cliente` LIKE '%".$cliente."%'";
 		}	
 		
-		echo $sql;
+		echo $sql;*/
 
 		return $this->con->execSql($sql);
 	}
