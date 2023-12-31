@@ -17,6 +17,7 @@ class ControllerComandas{
 		}
 	}
 	
+	
 	public function consultaComadaPorNumero($idComanda){
 		$comandas = new Comandas();
 		$result = $comandas->consultaConsumoComanda($idComanda);
@@ -62,7 +63,9 @@ class ControllerComandas{
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente&id='.$idComanda.'&mesa='.$mesa.'&aside=true');
 		//echo $mesa;
 	}
-	
+	public function deduzirValor(){
+		echo'deduzir valor em desenvolvimento';
+	}
 	public function fecharComanda($idComanda, $status,$total){
 		
 		$comandas = new Comandas();
@@ -92,7 +95,8 @@ $metodosPemitidos = [
 		'addConsumo',
 		'deletConsumo',
 		'fecharComanda',
-		'fecharVariasComanda'
+		'fecharVariasComanda',
+		'deduzirValor'
 ];
 
 // chama o methodo dinamicamente
@@ -121,6 +125,10 @@ if(isset($_REQUEST['m'])){
 		}else if($metodo == 'fecharVariasComanda') {
 			
 			$c->$metodo($_REQUEST['comandas'],$_REQUEST['txtDescricao'],$_REQUEST['total']);
+			
+		}else if($metodo == 'deduzirValor') {
+			
+			$c->$metodo();
 			
 		}else{
 			$c->$metodo();

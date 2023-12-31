@@ -4,6 +4,9 @@ class MenuComanda{
 	
 	public function montaMenu(){
 		echo '
+		<div class="div-h2">
+			<h2>Menu Comandas</h2>
+		</div>	
 			<div id="divMenuComanda">
 				<div class="divIconeMenuComanda">
 					<a href="?link=app/views/formAbrirComanda">

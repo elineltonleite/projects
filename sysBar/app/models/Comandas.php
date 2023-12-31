@@ -59,6 +59,9 @@ class Comandas{
 		$sql ="DELETE FROM `consumos` WHERE id=".$id;
 		$this->con->execSql($sql);
 	}
+	public function deduzir(){
+		
+	}
 }
 
 

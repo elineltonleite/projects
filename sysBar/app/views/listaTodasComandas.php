@@ -27,7 +27,7 @@ $din = 0;
 	
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 			echo'<tr>';
-				echo '<td class="alignCenter">'.$row['id'].'</td>';
+				echo '<td class="alignCenter"><a href="?link=app/controllers/ControllerGestao&m=retornaTodasComandas&status=A receber&id='.$row['id'].'&mesa='.ucwords($row['mesa_cliente']).'&aside=true&txtCliente='.$_REQUEST['txtCliente'].'&txtData='.$_REQUEST['txtData'].'">'.$row['id'].'</a></td>';
 				echo '<td class="alignLeft">'.ucwords($row['mesa_cliente']).'</td>';
 				echo '<td class="alignLeft">'.$row['data_inicio'].'</td>';
 				echo '<td class="alignLeft">'.$row['data_fim'].'</td>';
@@ -54,11 +54,11 @@ $din = 0;
 				
 			
 		}
-		
+		$total = ($receber+$pix+$cartDeb+$cartCred+$din);
 	echo'
 		</table>
 			<div class="divSomas">
-				Din:R$ '.number_format($din, 2, ',', '.').' || Pix: R$ '.number_format($pix, 2, ',', '.').' || Cred: R$ '.number_format($cartCred, 2, ',', '.').' || Deb:R$ '.number_format($cartDeb, 2, ',', '.').' || Receb:R$ '.number_format($receber, 2, ',', '.').' || Total:'.number_format($receber+$pix+$cartDeb+$cartCred+$din, 2, ',', '.').'
+				Din:R$'.number_format($din, 2, ',', '.').'||Pix:R$'.number_format($pix, 2, ',', '.').'||Cred: R$'.number_format($cartCred, 2, ',', '.').'||Deb:R$'.number_format($cartDeb, 2, ',', '.').'||Receb:R$'.number_format($receber, 2, ',', '.').'||Total:R$'.number_format($total, 2, ',', '.').'||Caixa:R$'.number_format($total - $receber, 2, ',', '.').'
 			</div>
 		</div>
 	';	

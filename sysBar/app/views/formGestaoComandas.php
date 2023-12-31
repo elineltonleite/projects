@@ -1,5 +1,20 @@
 <?php
+	/*
+		
 	
+	
+	<div id="divStatus">
+		<label for="">Status</label>
+		<select name="txtStatus" id="txtStatus">
+			<option></option>
+			<?php
+				for($i=0; $i<count($status); $i++){
+					echo '<option>'.ucfirst($status).'</option>';
+				}
+			?>
+		</select>
+	</div>
+	*/
 
 ?>
 
@@ -25,20 +40,7 @@
 		<input type="date" name="txtData" id="txtData">
 	</div>
 	
-	
-	
-	
-	<div id="divStatus">
-		<label for="">Status</label>
-		<select name="txtStatus" id="txtStatus">
-			<option></option>
-			<?php
-				for($i=0; $i<count($status); $i++){
-					echo '<option>'.ucfirst($status).'</option>';
-				}
-			?>
-		</select>
-	</div>
+
 	
 	<div>
 		<button>Consultar</button>

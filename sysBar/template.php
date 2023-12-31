@@ -52,6 +52,11 @@
 							Fechar Comanda
 						</div>
 					</a>
+					<a href="?link=./app/views/formDeduzirValorComanda&id='.$_REQUEST['id'].'&mesa='.$_REQUEST['mesa'].'&total='.$tot.'">
+						<div id="divFecharComanda">
+							Deduzir Valor
+						</div>
+					</a>
 					';
 				}	
 			}
