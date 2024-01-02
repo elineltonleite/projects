@@ -26,15 +26,20 @@
 		/* variavel criadas para armazenas valores das comndas como string
 		para depois usar expode para tranformar em array com função explode*/
 		$cmds='';
+		$valores = '';
 		foreach($value as $comanda=>$k){
 			
 			$cmds .= $comanda.' ';
+			$valores .=' ';
 			echo'<tr>';
 			echo '<td class="alignCenter"colspan=""><a href="?link=app/controllers/ControllerComandas&m=mostraComandas&status=A receber&id='.$comanda.'&mesa='.$mesa.'&aside=true">'.$comanda.'</a></td>';
 		
 			foreach($k as $valor=>$data){
+				$valores .= $valor;
+				
 				echo '<td>R$ '.$valor.'</td>';
 				echo '<td>'.$data.'</td>';
+				
 				
 				$total += $valor;
 			}
@@ -45,7 +50,7 @@
 		echo '<tr class="trUltima">
 				<td>Total a Receber: </td>
 				<td class="alignLeft">R$'.number_format($total, 2, ',', '.').'</td>
-				<td><a href="?link=./app/views/formFecharVariasComanda&comandas='.$cmds.'&mesa='.$mesa.'&total='.$total.'">Finalizar Cobrança</a></td>
+				<td><a href="?link=./app/views/formFecharVariasComanda&comandas='.$cmds.'&valores='.$valores.'&mesa='.$mesa.'&total='.$total.'">Finalizar Cobrança</a></td>
 			</tr>
 			<tr><td>.</td></tr>
 			';

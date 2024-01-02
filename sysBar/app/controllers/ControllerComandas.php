@@ -31,6 +31,7 @@ class ControllerComandas{
 		$menu= new MenuComanda();
 		$menu->montaMenu();
 	}
+	
 	public function abrirComanda($nomeComanda){
 		$comanda =  new Comandas();
 		$msg = $comanda->abrirComanda($nomeComanda);
@@ -44,11 +45,13 @@ class ControllerComandas{
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente');
 		
 	}
+	
 	public function addConsumo($idComanda, $mesa, $idProduto, $qtd){
 		$comandas = new Comandas();
 		$comandas->cadastraConsumo($idComanda, $idProduto, $qtd);
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente&id='.$idComanda.'&mesa='.$mesa.'&aside=true');
 	}
+	
 	public function deletConsumo($id, $idComanda){
 		$comandas = new Comandas();
 		$comandas-> removerConsumo($id);
@@ -63,9 +66,11 @@ class ControllerComandas{
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente&id='.$idComanda.'&mesa='.$mesa.'&aside=true');
 		//echo $mesa;
 	}
+	
 	public function deduzirValor(){
 		echo'deduzir valor em desenvolvimento';
 	}
+	
 	public function fecharComanda($idComanda, $status,$total){
 		
 		$comandas = new Comandas();
@@ -73,13 +78,22 @@ class ControllerComandas{
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente');
 	}
 	
-	public function fecharVariasComanda($cmds, $status, $total){
+	
+	public function fecharVariasComanda($cmds, $status, $valores){
 		$comandas = new Comandas();
 		$arComandas = explode(' ',trim($cmds));
+		$arValores = explode(' ', trim($valores));
 		
-		foreach($arComandas as $comanda){
-			$comandas->encerrarComanda($comanda, $status, $total);
+		for($i=0; $i < count($arComandas); $i++){
+			$comandas->encerrarComanda($arComandas[$i], $status, $arValores[$i]);
 		}
+			
+		
+		//foreach($arComandas as $comanda){
+			//$comandas->encerrarComanda($comanda, $status, $total);
+			
+		//}
+		
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=A receber');
 	}
 }
@@ -124,7 +138,7 @@ if(isset($_REQUEST['m'])){
 			
 		}else if($metodo == 'fecharVariasComanda') {
 			
-			$c->$metodo($_REQUEST['comandas'],$_REQUEST['txtDescricao'],$_REQUEST['total']);
+			$c->$metodo($_REQUEST['comandas'], $_REQUEST['txtDescricao'],$_REQUEST['valores']);
 			
 		}else if($metodo == 'deduzirValor') {
 			

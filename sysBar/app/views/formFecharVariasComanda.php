@@ -2,6 +2,7 @@
 	<?php 
 	echo 'Cliente  : '.ucfirst($_REQUEST['mesa']).'<br>';
 	echo 'Comandas : '.$_REQUEST['comandas'].'<br>';
+	echo 'Valores: '.$_REQUEST['valores'].'<br>';
 	echo 'Total: R$ '.number_format($_REQUEST['total'], 2, ',', '.').'<br><br>';
 	?>
 	</div>
@@ -14,7 +15,7 @@
 	<input type="hidden" name="m" value="fecharVariasComanda">
 	
 	<input type="hidden" name="comandas" value="<?php echo $_REQUEST['comandas'];?>">
-	<input type="hidden" name="total" value="<?php echo $_REQUEST['total'];?>">
+	<input type="hidden" name="valores" value="<?php echo $_REQUEST['valores'];?>">
 	
 
 	<div id="divDescricao">
