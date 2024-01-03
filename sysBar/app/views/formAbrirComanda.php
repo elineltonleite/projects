@@ -1,5 +1,5 @@
 
-<form id="formComanda">
+<form id="formComanda" method="POST">
 	<input type="hidden" name="link" value="app/controllers/ControllerComandas">	
 	<input type="hidden" name="m" value="abrirComanda">	
 	<div class="div-h2">

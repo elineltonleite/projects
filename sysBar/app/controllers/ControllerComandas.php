@@ -71,10 +71,11 @@ class ControllerComandas{
 		echo'deduzir valor em desenvolvimento';
 	}
 	
+	
 	public function fecharComanda($idComanda, $status,$total){
-		
 		$comandas = new Comandas();
-		$comandas->encerrarComanda($idComanda, $status, $total);
+		$comandas->encerrarComanda($idComanda, $status,$total);
+			
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=pendente');
 	}
 	
@@ -87,12 +88,7 @@ class ControllerComandas{
 		for($i=0; $i < count($arComandas); $i++){
 			$comandas->encerrarComanda($arComandas[$i], $status, $arValores[$i]);
 		}
-			
-		
-		//foreach($arComandas as $comanda){
-			//$comandas->encerrarComanda($comanda, $status, $total);
-			
-		//}
+
 		
 		header('Location: ?link=app/controllers/ControllerComandas&m=mostraComandas&status=A receber');
 	}

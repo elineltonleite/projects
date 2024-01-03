@@ -7,7 +7,7 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)){
 }
 ?>
 
-<form method="GET" id="formCadConsumo">
+<form method="POST" id="formCadConsumo">
 	<input type="hidden" name="link" value="app/controllers/ControllerComandas">
 	<input type="hidden" name="m" value="addConsumo">
 	<input type="hidden" name="comanda" value="<?php echo $_REQUEST['id']?>">

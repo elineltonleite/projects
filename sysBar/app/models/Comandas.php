@@ -34,8 +34,7 @@ class Comandas{
 		}
 	}
 	public function encerrarComanda($idComanda,$status,$total){
-		date_default_timezone_set('America/Sao_Paulo');
-		
+		date_default_timezone_set('America/Sao_Paulo');		
 		$sql="UPDATE `comandas` SET `status`='".$status."', `data_fim`='".date('Y-m-d')."', `total`=".$total." WHERE id=".$idComanda;
 		$this->con->execSql($sql);		
 	}

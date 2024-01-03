@@ -34,6 +34,7 @@ class ControllerProdutos{
 			$result = $produto->listarProdutosCadastrados();
 			include_once'./app/views/listaProdutosCadastrados.php';
 	}
+	
 	public function cadastrarProduto($desc, $preco){
 		
 			$produto = new Produto();

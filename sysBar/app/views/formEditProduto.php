@@ -6,7 +6,7 @@ $preco =$_REQUEST['preco'];
 
 ?>
 
-<form method="GET" action=""id="formCadProd">
+<form method="POST" action=""id="formCadProd">
 	<div class="div-h2 ">
 		<h2>Editar Produto</h2>
 	</div>

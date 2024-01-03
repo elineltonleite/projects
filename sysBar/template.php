@@ -16,6 +16,7 @@
 	<ul>
 		<li><a href="?link=app/controllers/ControllerComandas"><img src="./imgs/documentos.png" width="45px">Comandas</a></li>
 		<li><a href="?link=app/controllers/ControllerProdutos"><img src="./imgs/alcool.png" width="45px">Produtos</a></li>
+		<li><a href="?link=app/controllers/ControllerDespesas"><img src="./imgs/despesas.png" width="45px">Despesas</a></li>
 		<li><a href="?link=app/controllers/ControllerGestao"><img src="./imgs/money.png" width="45px">Gestão</a></li>
 	</ul>
 </nav>
