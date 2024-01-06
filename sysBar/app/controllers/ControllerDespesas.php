@@ -24,8 +24,7 @@ class ControllerDespesas{
 
 
 $c = new ControllerDespesas;
-$c->formCadastrar();
-$c->mostraDepesas();
+
 
 
 $metodosPermitidos = [
@@ -42,6 +41,7 @@ if(isset($_REQUEST['m'])){
 		}
 	}
 	
-}else{
-	
 }
+
+$c->formCadastrar();
+$c->mostraDepesas();

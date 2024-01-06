@@ -10,6 +10,7 @@ echo'<div class="divTopoTable">
 					<th class="alignCenter">ID</th>
 					<th class="alignLeft">Descrição</th>
 					<th class="alignLeft">Valor</th>
+					<th class="alignLeft">Data</th>
 					
 				</tr>';
 
@@ -18,6 +19,7 @@ echo'<div class="divTopoTable">
 					echo '<td class="alignCenter">'.$row['id'].'</td>';
 					echo '<td class="alignLeft">'.ucfirst($row['descricao']).'</td>';
 					echo '<td class="alignLeft">R$ '.$row['valor'].'</td>';
+					echo '<td class="alignLeft">'.$row['data'].'</td>';
 					//echo '<td class="alignCenter"><a href="?link=app/controllers/ControllerProdutos&m=formEditar&id='.$row['id'].'&desc='.$row['descricao'].'&preco='.$row['preco_venda'].'"><img src="imgs/lapis.png" width="20px"></a></td>';
 				echo'</tr>';
 			}
