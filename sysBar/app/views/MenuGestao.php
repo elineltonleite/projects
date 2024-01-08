@@ -4,16 +4,23 @@ class MenuGestao{
 	
 	public function montaMenu(){
 		echo '
-		<div class="div-h2">
-			<h2>Menu Comandas</h2>
-		</div>	
+			<div class="div-h2">
+				<h2>Menu Gestão</h2>
+			</div>	
 			<div id="divMenuComanda">
 				<div class="divIconeMenuComanda">
 					<a href="?link=app/controllers/ControllerGestao&m=mostraFormulario">
-						<img src="./imgs/notepad.png">	
-						<p>Gestâo vendas</p>
+						<img src="./imgs/crescimento.png">	
+						<p>Vendas</p>
 					</a>
 				</div>
+				<div class="divIconeMenuComanda">
+					<a href="">
+						<img src="./imgs/despesas2.png">	
+						<p>Despesas</p>
+					</a>
+				</div>
+			</div>	
 				
 		';
 	}

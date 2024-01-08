@@ -22,7 +22,7 @@ class ControllerGestao{
 
 
 $c = new ControllerGestao();
-$c->menuGestao();
+
 
 
 $metodosPermitidos=[
@@ -35,10 +35,13 @@ if(isset($_REQUEST['m'])){
 	
 	if(in_array($metodo, $metodosPermitidos)){
 		if($metodo == 'retornaTodasComandas'){
+			$c->mostraFormulario();
 			$c->$metodo($_REQUEST['txtCliente'], $_REQUEST['txtData']);
-		}else if($metodo == 'mostraFormulario'){
+		}else{
 			$c->$metodo();
 		}
 	}
 	
+}else{
+	$c->menuGestao();
 }

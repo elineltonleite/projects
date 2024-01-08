@@ -41,7 +41,8 @@ if(isset($_REQUEST['m'])){
 		}
 	}
 	
+}else{
+	$c->formCadastrar();
+	$c->mostraDepesas();
 }
 
-$c->formCadastrar();
-$c->mostraDepesas();
