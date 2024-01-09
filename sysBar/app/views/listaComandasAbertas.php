@@ -10,7 +10,7 @@ echo '<div class="div-h2">
 			
 				echo'<div class="boxComanda">';
 					echo'<div class="spanComanda">'.$row['id'].'</div>';
-					echo'<img src="./imgs/cheque-bancario-azul.png">';
+					echo'<img src="./imgs/papel.png">';
 					echo '<div class="spanCliente">'.ucwords($row['mesa_cliente']).'</div>';
 				echo'</div>';
 			echo'</a>';

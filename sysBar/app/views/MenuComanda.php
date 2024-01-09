@@ -17,7 +17,6 @@ class MenuComanda{
 				<div class="divIconeMenuComanda">
 					<a href="?link=app/controllers/ControllerComandas&m=mostraComandas&status=A receber">
 						<img src="./imgs/receber.png">	
-						
 						<p>A Receber</p>
 					</a>
 				</div>

@@ -5,15 +5,15 @@ class Gestao{
 	public function __construct(){
 		$this->con = new ConexaoMysql();
 	}
-	public function retornaComandasComFiltro($cliente, $data){
+	public function retornaComandasComFiltro($cliente, $dataInicial){
 		//$sql ="SELECT * FROM `comandas`";
 		
 		$sql="SELECT * FROM `comandas`";
 		
-		if(isset($cliente) && !empty($cliente)){
+		if(!empty($cliente)){
 			$sql .="WHERE `mesa_cliente` LIKE '%".$cliente."%'";
-		}else if(isset($data) && !empty($data)){
-			$sql .="WHERE `data_inicio` LIKE '%".$data."%'";
+		}else if(!empty($dataInicial)){
+			$sql .="WHERE `data_inicio` LIKE '%".$dataInicial."%'";
 		}
 		/*
 		if(isset($data) && !empty($data)&&isset($cliente) && !empty($cliente)){

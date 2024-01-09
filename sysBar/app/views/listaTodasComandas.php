@@ -18,8 +18,8 @@ $din = 0;
 			<tr>
 				<th class="alignCenter">Comanda</th>
 				<th class="alignLeft">Mesa / Cliente</th>
-				<th class="alignLeft">Data Inicio</th>
-				<th class="alignLeft">Data Fim</th>
+				<th class="alignLeft">Abertura</th>
+				<th class="alignLeft">Fim</th>
 				<th class="alignLeft">Status</th>
 				<th class="alignLeft">Valor</th>
 			</tr>
@@ -27,7 +27,7 @@ $din = 0;
 	
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 			echo'<tr>';
-				echo '<td class="alignCenter"><a href="?link=app/controllers/ControllerGestao&m=retornaTodasComandas&status=A receber&id='.$row['id'].'&mesa='.ucwords($row['mesa_cliente']).'&aside=true&txtCliente='.$_REQUEST['txtCliente'].'&txtData='.$_REQUEST['txtData'].'">'.$row['id'].'</a></td>';
+				echo '<td class="alignCenter"><a href="?link=app/controllers/ControllerGestao&m=retornaTodasComandas&status=A receber&id='.$row['id'].'&mesa='.ucwords($row['mesa_cliente']).'&aside=true&txtCliente='.$_REQUEST['txtCliente'].'&txtDataInicial='.$_REQUEST['txtDataInicial'].'">'.$row['id'].'</a></td>';
 				echo '<td class="alignLeft">'.ucwords($row['mesa_cliente']).'</td>';
 				echo '<td class="alignLeft">'.$row['data_inicio'].'</td>';
 				echo '<td class="alignLeft">'.$row['data_fim'].'</td>';

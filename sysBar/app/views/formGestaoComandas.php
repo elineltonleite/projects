@@ -36,12 +36,14 @@
 		<input type="text" name="txtCliente" id="txtCliente">
 	</div>
 	<div id="">
-		<label for="txtData">Data</label>
-		<input type="date" name="txtData" id="txtData">
+		<label for="txtDataInicial">Data inicio</label>
+		<input type="date" name="txtDataInicial" id="txtDataInicial">
 	</div>
-	
+	<div id="">
+		<label for="txtDataFim">Data fim</label>
+		<input type="date" name="txtDataFim" id="txtDataFiml">
+	</div>
 
-	
 	<div>
 		<button>Consultar</button>
 	</div>

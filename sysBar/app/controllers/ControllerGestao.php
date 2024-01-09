@@ -2,9 +2,9 @@
 
 class ControllerGestao{
 	
-	public function retornaTodasComandas($cliente, $data){
+	public function retornaTodasComandas($cliente, $dataInicial){
 		$gestao = new Gestao();
-		$result = $gestao->retornaComandasComFiltro($cliente, $data);
+		$result = $gestao->retornaComandasComFiltro($cliente, $dataInicial);
 		include_once'./app/views/listaTodasComandas.php';
 	}
 	public function mostraFormulario(){
@@ -36,7 +36,7 @@ if(isset($_REQUEST['m'])){
 	if(in_array($metodo, $metodosPermitidos)){
 		if($metodo == 'retornaTodasComandas'){
 			$c->mostraFormulario();
-			$c->$metodo($_REQUEST['txtCliente'], $_REQUEST['txtData']);
+			$c->$metodo($_REQUEST['txtCliente'], $_REQUEST['txtDataInicial']);
 		}else{
 			$c->$metodo();
 		}
